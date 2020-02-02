@@ -32,8 +32,12 @@
    :use          '[loop recur]
    :dont-use     '[reduce]
    :implemented? false}
-  ([f coll])
-  ([f init coll]))
+  ([f coll]
+   (reduce' f (first coll) (rest coll)))
+  ([f init coll]
+   (loop [c coll res init]
+     (if (empty? c) res
+                    (recur (rest c) (f res (first c)))))))
 
 (defn count'
   "Implement your own version of count that counts the
