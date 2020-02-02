@@ -16,3 +16,7 @@
     (is (= 21 (reduce' + [1 2 3 4 5 6]))))
   (testing "reverse the list"
     (is (= '(6 5 4 3 2 1) (reduce' conj '() [1 2 3 4 5 6])))))
+
+(deftest count-test
+  (testing "length of list"
+    (is (= 6 (count' [1 2 3 4 5 6])))))
