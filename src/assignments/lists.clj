@@ -22,9 +22,7 @@
    :dont-use     '[filter]
    :implemented? false}
   [pred coll]
-  (loop [c coll res '()]
-    (if (empty? c) res
-                      (recur (rest c) (concat res (when (pred (first c)) (list (first c))))))))
+  (remove (complement pred) coll))
 
 (defn reduce'
   "Implement your own multi-arity version of reduce
