@@ -13,7 +13,8 @@
   {:level        :easy
    :use          '[if-not zero?]
    :implemented? false}
-  [x y])
+  [x y]
+  (if-not (zero? y) (/ x y) :infinite))
 
 (defn harishchandra
   "Only returns truthy values as themselves.
