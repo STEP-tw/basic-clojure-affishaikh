@@ -13,3 +13,9 @@
     (is (= 2 (informative-divide 4 2))))
   (testing "zero denominator"
     (is (= :infinite (informative-divide 4 0)))))
+
+(deftest harishchandra-test
+  (testing "should return true for truthy values"
+    (is (true? (harishchandra true))))
+  (testing "should return nil for falsy values"
+    (is (nil? (harishchandra nil)))))

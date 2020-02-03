@@ -22,7 +22,8 @@
   {:level        :easy
    :use          '[when-let]
    :implemented? false}
-  [x])
+  [x]
+  (when-let [y x] y))
 
 (defn yudishtira
   "Only returns truthy values as themselves.
