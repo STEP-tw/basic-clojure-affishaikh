@@ -19,3 +19,7 @@
     (is (true? (harishchandra true))))
   (testing "should return nil for falsy values"
     (is (nil? (harishchandra nil)))))
+
+(deftest repeat-and-truncate-test
+  (testing "should truncate 6 elements from repeated coll"
+    (is (= '(0 1 2 3 0 1) (repeat-and-truncate (range 4) true true 6)))))
