@@ -63,3 +63,7 @@
     (is (= :empty-set (zero-aliases #{}))))
   (testing "should return :empty-map"
     (is (= :empty-map (zero-aliases {})))))
+
+(deftest zero-separated-palindrome-test
+  (testing "should return (5 4 3 0 3 4 5)"
+    (is (= '(5 4 3 0 3 4 5) (zero-separated-palindrome '(2 3 4))))))

@@ -118,7 +118,7 @@
   \"\"  -> :empty-string"
   {:level        :easy
    :use          '[case]
-   :implemented? false}
+   :implemented? true}
   [zero-like-value]
   (case zero-like-value
     0 :zero
@@ -136,4 +136,7 @@
   {:level :easy
    :use '[as-> reverse]
    :implemented? false}
-  [coll])
+  [coll]
+  (as-> (reverse coll) c
+        (map inc c)
+        (concat c '(0) (reverse c))))
