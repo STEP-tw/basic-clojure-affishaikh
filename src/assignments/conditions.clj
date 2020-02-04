@@ -67,13 +67,15 @@
   {:level        :medium
    :use          '[condp filter]
    :alternates   '[if cond]
-   :implemented? false}
+   :implemented? true}
   [coll]
   (condp
     (fn
      [l c]
-      (and (apply < (map (fn [x] (.indexOf c x)) l))
-           (every? (fn [x] (= (count (filter #{x} c)) 1)) l)))
+      (-> l
+          set
+          (filter c)
+          (= l)))
     coll
     (list 1 3) :wonder-woman
     (list :a :b :c) :durga
