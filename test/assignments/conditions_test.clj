@@ -64,6 +64,14 @@
   (testing "should return :empty-map"
     (is (= :empty-map (zero-aliases {})))))
 
+(deftest order-in-words-test
+  (testing "should return [:x-greater-than-y :y-greater-than-z]"
+    (is (= [:x-greater-than-y :y-greater-than-z] (order-in-words 4 3 2))))
+  (testing "should return [:x-greater-than-y :z-greater-than-x]"
+    (is (= [:x-greater-than-y :z-greater-than-x] (order-in-words 4 3 5))))
+  (testing "should return [:z-greater-than-x]"
+    (is (= [:z-greater-than-x] (order-in-words 3 4 5)))))
+
 (deftest zero-separated-palindrome-test
   (testing "should return (5 4 3 0 3 4 5)"
     (is (= '(5 4 3 0 3 4 5) (zero-separated-palindrome '(2 3 4))))))
