@@ -43,3 +43,13 @@
     (is (= :satan-bhagat (five-point-someone 5 4))))
   (testing "should return :greece"
     (is (= :greece (five-point-someone 3 2)))))
+
+(deftest conditions-apply-test
+  (testing "should return :wonder-woman"
+    (is (= :wonder-woman (conditions-apply '(1 2 3 4 5)))))
+  (testing "should return :durga"
+    (is (= :durga (conditions-apply '(:a :e :f :b :g :h :c :d)))))
+  (testing "should return :cleopatra"
+    (is (= :cleopatra (conditions-apply '([2 3] 4 5 [4 5])))))
+  (testing "should return :tuntun"
+    (is (= :tuntun (conditions-apply '(1 2 3 4 1 5 3))))))
