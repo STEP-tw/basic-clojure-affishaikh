@@ -35,3 +35,11 @@
     (is (= '(1 1 2 3 4) (duplicate-first '(1 2 3 4)))))
   (testing "should return nil"
     (is (nil? (duplicate-first '())))))
+
+(deftest five-point-someone-test
+  (testing "should return :chetan-bhagat"
+    (is (= :chetan-bhagat (five-point-someone 4 5))))
+  (testing "should return :satan-bhagat"
+    (is (= :satan-bhagat (five-point-someone 5 4))))
+  (testing "should return :greece"
+    (is (= :greece (five-point-someone 3 2)))))
