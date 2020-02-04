@@ -53,3 +53,13 @@
     (is (= :cleopatra (conditions-apply '([2 3] 4 5 [4 5])))))
   (testing "should return :tuntun"
     (is (= :tuntun (conditions-apply '(1 2 3 4 1 5 3))))))
+
+(deftest zero-aliases-test
+  (testing "should return zero"
+    (is (= :zero (zero-aliases 0))))
+  (testing "should return :empty"
+    (is (= :empty (zero-aliases '()))))
+  (testing "should return :empty-set"
+    (is (= :empty-set (zero-aliases #{}))))
+  (testing "should return :empty-map"
+    (is (= :empty-map (zero-aliases {})))))
