@@ -62,7 +62,9 @@
   (testing "should return :empty-set"
     (is (= :empty-set (zero-aliases #{}))))
   (testing "should return :empty-map"
-    (is (= :empty-map (zero-aliases {})))))
+    (is (= :empty-map (zero-aliases {}))))
+  (testing "should return :empty-string"
+    (is (= :empty-string (zero-aliases "")))))
 
 (deftest order-in-words-test
   (testing "should return [:x-greater-than-y :y-greater-than-z]"
