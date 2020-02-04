@@ -20,6 +20,12 @@
   (testing "should return nil for falsy values"
     (is (nil? (harishchandra nil)))))
 
+(deftest yudishtira-test
+  (testing "should return true for truthy values"
+    (is (true? (yudishtira true))))
+  (testing "should return :ashwathama for falsy values"
+    (is (= :ashwathama (yudishtira false)))))
+
 (deftest repeat-and-truncate-test
   (testing "should truncate 6 elements from repeated coll"
     (is (= '(0 1 2 3 0 1) (repeat-and-truncate (range 4) true true 6)))))

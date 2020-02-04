@@ -7,7 +7,7 @@
   {:level        :medium
    :use          '[loop recur]
    :dont-use     '[map]
-   :implemented? false}
+   :implemented? true}
   [f & colls]
   (loop [coll (first colls) result '()]
     (if (empty? coll) result
@@ -20,7 +20,7 @@
   {:level        :easy
    :use          '[loop recur]
    :dont-use     '[filter]
-   :implemented? false}
+   :implemented? true}
   [pred coll]
   (remove (complement pred) coll))
 
@@ -31,7 +31,7 @@
   {:level        :medium
    :use          '[loop recur]
    :dont-use     '[reduce]
-   :implemented? false}
+   :implemented? true}
   ([f coll]
    (reduce' f (first coll) (rest coll)))
   ([f init coll]
@@ -45,7 +45,7 @@
   {:level        :easy
    :use          '[loop recur]
    :dont-use     '[count]
-   :implemented? false}
+   :implemented? true}
   [coll] (reduce (fn [x _] (inc x)) 0 coll))
 
 (defn reverse'
