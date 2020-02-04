@@ -29,3 +29,9 @@
 (deftest repeat-and-truncate-test
   (testing "should truncate 6 elements from repeated coll"
     (is (= '(0 1 2 3 0 1) (repeat-and-truncate (range 4) true true 6)))))
+
+(deftest duplicate-first-test
+  (testing "should duplicate first element"
+    (is (= '(1 1 2 3 4) (duplicate-first '(1 2 3 4)))))
+  (testing "should return nil"
+    (is (nil? (duplicate-first '())))))
