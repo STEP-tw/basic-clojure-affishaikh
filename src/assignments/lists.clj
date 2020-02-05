@@ -46,7 +46,8 @@
    :use          '[loop recur]
    :dont-use     '[count]
    :implemented? true}
-  [coll] (reduce (fn [x _] (inc x)) 0 coll))
+  [coll]
+  (reduce (fn [x _] (inc x)) 0 coll))
 
 (defn reverse'
   "Implement your own version of reverse that reverses a coll.
@@ -54,8 +55,9 @@
   {:level        :easy
    :use          '[reduce conj seqable? when]
    :dont-use     '[reverse]
-   :implemented? false}
-  ([coll]))
+   :implemented? true}
+  [coll]
+  (reduce conj '() coll))
 
 (defn every?'
   "Implement your own version of every? that checks if every

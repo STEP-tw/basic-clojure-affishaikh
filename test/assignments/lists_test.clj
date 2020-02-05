@@ -20,3 +20,7 @@
 (deftest count-test
   (testing "length of list"
     (is (= 6 (count' [1 2 3 4 5 6])))))
+
+(deftest reverse-test
+  (testing "reverse list"
+    (is (= [4 3 2 1] (reverse' [1 2 3 4])))))
