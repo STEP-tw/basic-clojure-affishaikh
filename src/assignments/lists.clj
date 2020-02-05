@@ -66,7 +66,13 @@
    :use          '[loop recur and]
    :dont-use     '[every?]
    :implemented? false}
-  ([pred coll]))
+  [pred coll]
+  (loop
+    [c coll res true]
+    (if
+      (or (not res) (empty? c))
+      res
+      (recur (rest c) (pred (first c))))))
 
 (defn some?'
   "Implement your own version of some that checks if at least one

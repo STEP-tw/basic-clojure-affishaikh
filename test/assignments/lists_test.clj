@@ -24,3 +24,7 @@
 (deftest reverse-test
   (testing "reverse list"
     (is (= [4 3 2 1] (reverse' [1 2 3 4])))))
+
+(deftest every?'-test
+  (testing "should return true"
+    (is (true? (every?' even? [2 4 6 8])))))
