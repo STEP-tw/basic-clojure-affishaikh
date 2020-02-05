@@ -125,7 +125,7 @@
   {:level        :medium
    :use          '[lazy-seq conj let :optionally letfn]
    :dont-use     '[loop recur dedupe]
-   :implemented? false}
+   :implemented? true}
   ([coll]
    (dedupe' [] coll))
   ([res coll]
@@ -142,8 +142,13 @@
   {:level        :medium
    :use          '[map + rest]
    :dont-use     '[loop recur partition]
-   :implemented? false}
-  [coll])
+   :implemented? true}
+  [coll]
+  (loop
+    [x coll res []]
+    (if (< (count x) 2)
+      res
+      (recur (rest x) (conj res (+ (first x) (second x)))))))
 
 (defn max-three-digit-sequence
   "Given a collection of numbers, find a three digit sequence that

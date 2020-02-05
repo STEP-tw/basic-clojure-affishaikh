@@ -50,3 +50,7 @@
     (is (= [1 2 3 4 5 1] (take 6 (dedupe' [1 1 2 2 3 4 4 5 1])))))
   (testing "should return consecutive distinct names"
     (is (= ["deepika" "dheeraj" "deepika"] (take 3 (dedupe' ["deepika" "deepika" "dheeraj" "deepika"]))))))
+
+(deftest sum-of-adjacent-digits-test
+  (testing "should return sum of adjacent digits"
+    (is (= [3 5 7] (sum-of-adjacent-digits [1 2 3 4 ])))))
