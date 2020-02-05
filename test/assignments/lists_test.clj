@@ -38,3 +38,9 @@
     (is (false? (ascending? [2 4 1 6 8]))))
   (testing "should return true"
     (is (true? (ascending? [2 4 6 8])))))
+
+(deftest distinct'-test
+  (testing "should return distinct elements"
+    (is (= [1 2 3 4 5] (take 5 (distinct' [1 1 2 2 3 4 4 5])))))
+  (testing "should return distinct names"
+    (is (= ["deepika" "dheeraj"] (take 2 (distinct' ["deepika" "deepika" "dheeraj"]))))))

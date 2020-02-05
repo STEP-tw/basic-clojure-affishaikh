@@ -107,8 +107,16 @@
   {:level        :medium
    :use          '[lazy-seq set conj let :optionally letfn]
    :dont-use     '[loop recur distinct]
-   :implemented? false}
-  [coll])
+   :implemented? true}
+  ([coll]
+   (distinct' [] coll))
+  ([res coll]
+   (lazy-seq
+     (let
+       [x (first coll) y (rest coll)]
+       (if (.contains res x)
+         (distinct' res y)
+         (cons x (distinct' (cons x res) y)))))))
 
 (defn dedupe'
   "Implement your own lazy sequence version of dedupe which returns
