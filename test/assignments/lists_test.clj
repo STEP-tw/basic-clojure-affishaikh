@@ -44,3 +44,9 @@
     (is (= [1 2 3 4 5] (take 5 (distinct' [1 1 2 2 3 4 4 5])))))
   (testing "should return distinct names"
     (is (= ["deepika" "dheeraj"] (take 2 (distinct' ["deepika" "deepika" "dheeraj"]))))))
+
+(deftest dedupe'-test
+  (testing "should return consecutive distinct elements"
+    (is (= [1 2 3 4 5 1] (take 6 (dedupe' [1 1 2 2 3 4 4 5 1])))))
+  (testing "should return consecutive distinct names"
+    (is (= ["deepika" "dheeraj" "deepika"] (take 3 (dedupe' ["deepika" "deepika" "dheeraj" "deepika"]))))))

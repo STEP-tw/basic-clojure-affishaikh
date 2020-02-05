@@ -126,7 +126,15 @@
    :use          '[lazy-seq conj let :optionally letfn]
    :dont-use     '[loop recur dedupe]
    :implemented? false}
-  [coll])
+  ([coll]
+   (dedupe' [] coll))
+  ([res coll]
+   (lazy-seq
+     (let
+       [x (first coll) y (rest coll)]
+       (if (= (last res) x)
+         (dedupe' res y)
+         (cons x (dedupe' (conj res x) y)))))))
 
 (defn sum-of-adjacent-digits
   "Given a collection, returns a map of the sum of adjacent digits.
