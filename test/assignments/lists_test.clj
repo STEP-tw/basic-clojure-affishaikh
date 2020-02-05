@@ -28,3 +28,13 @@
 (deftest every?'-test
   (testing "should return true"
     (is (true? (every?' even? [2 4 6 8])))))
+
+(deftest some?'-test
+  (testing "should return true"
+    (is (true? (some?' odd? [2 4 1 6 8])))))
+
+(deftest ascending?'-test
+  (testing "should return false"
+    (is (false? (ascending? [2 4 1 6 8]))))
+  (testing "should return true"
+    (is (true? (ascending? [2 4 6 8])))))

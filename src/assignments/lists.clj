@@ -65,7 +65,7 @@
   {:level        :easy
    :use          '[loop recur and]
    :dont-use     '[every?]
-   :implemented? false}
+   :implemented? true}
   [pred coll]
   (loop
     [c coll res true]
@@ -82,16 +82,23 @@
   {:level        :easy
    :use          '[loop recur or]
    :dont-use     '[some]
-   :implemented? false}
-  ([pred coll]))
+   :implemented? true}
+  [pred coll]
+  (loop
+    [c coll res false]
+    (if
+      (or res (empty? c))
+      res
+      (recur (rest c) (pred (first c))))))
 
 (defn ascending?
   "Verify if every element is greater than or equal to its predecessor"
   {:level        :easy
    :use          '[partition every? partial apply <=]
    :dont-use     '[loop recur]
-   :implemented? false}
-  [coll])
+   :implemented? true}
+  [coll]
+  (apply <= coll))
 
 (defn distinct'
   "Implement your own lazy sequence version of distinct which returns
