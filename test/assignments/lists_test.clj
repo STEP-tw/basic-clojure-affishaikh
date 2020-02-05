@@ -54,3 +54,7 @@
 (deftest sum-of-adjacent-digits-test
   (testing "should return sum of adjacent digits"
     (is (= [3 5 7] (sum-of-adjacent-digits [1 2 3 4 ])))))
+
+(deftest max-three-digit-sequence-test
+  (testing "should return [3 4 5]"
+    (is (= [3 4 5] (max-three-digit-sequence [1 2 3 4 5])))))

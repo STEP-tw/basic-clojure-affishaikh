@@ -150,6 +150,14 @@
       res
       (recur (rest x) (conj res (+ (first x) (second x)))))))
 
+(defn partition-with-step-1
+  [coll]
+  (loop
+    [c coll r []]
+    (if (< (count c) 3)
+     r
+     (recur (next c) (conj r (take 3 c))))))
+
 (defn max-three-digit-sequence
   "Given a collection of numbers, find a three digit sequence that
   yields the max sum. If the collection has fewer than 3 elements,
@@ -159,7 +167,10 @@
    :use          '[map next nnext max-key partial apply + if ->>]
    :dont-use     '[loop recur partition]
    :implemented? false}
-  [coll])
+  [coll]
+  (->> coll
+       partition-with-step-1
+       (apply max-key (partial apply +))))
 
 ;; transpose is a def. Not a defn.
 (def
